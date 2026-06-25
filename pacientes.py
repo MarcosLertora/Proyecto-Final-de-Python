@@ -28,6 +28,7 @@
 # Lista donde se almacenarán todos los pacientes
 
 from datos import pacientes
+import validaciones
 
 def existe_dni(dni):
     
@@ -53,7 +54,7 @@ def registrar_paciente():
     while True:
 
         try:
-            dni = int(input("DNI: "))
+            dni = validaciones.validar_entero("DNI: ")
 
             if dni <= 0:
                 print("El DNI debe ser mayor que cero.")
@@ -74,7 +75,7 @@ def registrar_paciente():
 
     while True:
 
-        nombre = input("Nombre: ").strip()
+        nombre = validaciones.validar_texto("Nombre: ").strip()
 
         if nombre == "":
             print("El nombre no puede estar vacío.")

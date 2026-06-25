@@ -30,6 +30,7 @@
 # ==========================================
 
 from datos import pacientes, turnos
+import validaciones
 
 
 def paciente_existe(dni):
@@ -58,7 +59,7 @@ def solicitar_turno():
 
     try:
 
-        dni = int(input("Ingrese DNI del paciente: "))
+        dni = validaciones.validar_entero("Ingrese DNI del paciente: ")
 
     except ValueError:
 
@@ -82,7 +83,10 @@ def solicitar_turno():
     print("3. Cardiología")
     print("4. Traumatología")
 
-    opcion = input("Seleccione una especialidad: ")
+    opcion = validaciones.validar_opcion(
+        "Seleccione especialidad (1-4): ",
+        ["1", "2", "3", "4"]
+    )
 
     if opcion == "1":
         especialidad = "Clínica Médica"

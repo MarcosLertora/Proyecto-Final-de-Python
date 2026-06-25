@@ -8,32 +8,53 @@
 #   - validar_opcion_menu()
 #   - validar_especialidad()
 
-def validar_dni():
-    print("Se llamó a validar_dni.")
 
-def validar_nombre():
-    print("Se llamó a validar_nombre.")
+# ==========================================
+# MÓDULO: VALIDACIONES
+# ==========================================
 
-def validar_edad():
+
+def validar_entero(mensaje):
 
     while True:
 
-        edad = input("Edad: ")
+        try:
+            valor = int(input(mensaje))
 
-        if edad.isdigit():
-            
-            edad = int(edad)
+            if valor <= 0:
+                print("Debe ser un número mayor a 0.")
+                continue
 
-            if edad > 0 and edad < 120:
-                return edad
-        
-        print("Edad inválida.")
+            return valor
 
-def validar_telefono():
-    print("Se llamó a validar_telefono.")
+        except ValueError:
+            print("Error: debe ingresar un número entero.")
 
-def validar_opcion_menu():
-    print("Se llamó a validar_opcion_menu.")
 
-def validar_especialidad():
-    print("Se llamó a validar_especialidad.")
+def validar_texto(mensaje):
+
+    while True:
+
+        texto = input(mensaje).strip()
+
+        if texto == "":
+            print("Error: el campo no puede estar vacío.")
+            continue
+
+        if texto.isdigit():
+            print("Error: no puede contener solo números.")
+            continue
+
+        return texto
+
+
+def validar_opcion(mensaje, opciones):
+
+    while True:
+
+        opcion = input(mensaje)
+
+        if opcion in opciones:
+            return opcion
+
+        print("Opción inválida. Intente nuevamente.")
