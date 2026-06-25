@@ -20,24 +20,131 @@
 #   - Edad
 #   - Teléfono
 #   - Obra social
+#
+# ==========================================
+# MÓDULO: pacientes.py
+# ==========================================
+
+# Lista donde se almacenarán todos los pacientes
+pacientes = []
+
+
+def existe_dni(dni):
+    
+    """
+    Verifica si un DNI ya está registrado.
+    Devuelve True si existe, False en caso contrario.
+
+    """
+    for paciente in pacientes:
+        if paciente["dni"] == dni:
+            return True
+
+    return False
+
 
 def registrar_paciente():
-    print("Se llamó a función registrar.")
 
-def buscar_paciente():
-    print("Se llamó a función buscar.")
+    print("\n===== REGISTRO DE PACIENTE =====")
+
+    # -----------------------------
+    # DNI
+    # -----------------------------
+    while True:
+
+        try:
+            dni = int(input("DNI: "))
+
+            if dni <= 0:
+                print("El DNI debe ser mayor que cero.")
+                continue
+
+            if existe_dni(dni):
+                print("Ese DNI ya está registrado.")
+                return
+
+            break
+
+        except ValueError:
+            print("Debe ingresar únicamente números.")
+
+    # -----------------------------
+    # Nombre
+    # -----------------------------
+
+    while True:
+
+        nombre = input("Nombre: ").strip()
+
+        if nombre == "":
+            print("El nombre no puede estar vacío.")
+            continue
+
+        break
+
+    # -----------------------------
+    # Edad
+    # -----------------------------
+
+    while True:
+
+        try:
+
+            edad = int(input("Edad: "))
+
+            if edad <= 0 or edad > 120:
+                print("Edad inválida.")
+                continue
+
+            break
+
+        except ValueError:
+            print("Debe ingresar un número.")
+
+    # -----------------------------
+    # Teléfono
+    # -----------------------------
+
+    telefono = input("Teléfono: ")
+
+    # -----------------------------
+    # Obra Social
+    # -----------------------------
+
+    obra_social = input("Obra Social: ")
+
+    # -----------------------------
+    # Crear paciente
+    # -----------------------------
+
+    paciente = {
+
+        "dni": dni,
+        "nombre": nombre,
+        "edad": edad,
+        "telefono": telefono,
+        "obra_social": obra_social
+
+    }
+
+    pacientes.append(paciente)
+
+    print("\nPaciente registrado correctamente.")
+
 
 def mostrar_pacientes():
-    print("Se llamó a función mostrar.")
 
-def existe_dni():
-    print("Se llamó a función existe_dni.")
+    print("\n===== PACIENTES REGISTRADOS =====")
 
-def bucar_paciente_por_dni():
-    print("Se llamó a función paciente_dni.")
+    if len(pacientes) == 0:
+        print("No hay pacientes registrados.")
+        return
 
-def modificar_paciente():
-    print("Se llamó a función modificar.")
+    for paciente in pacientes:
 
-def eliminar_paciente():
-    print("Se llamó a función eliminar.")
+        print("----------------------------")
+        print("DNI:", paciente["dni"])
+        print("Nombre:", paciente["nombre"])
+        print("Edad:", paciente["edad"])
+        print("Teléfono:", paciente["telefono"])
+        print("Obra Social:", paciente["obra_social"])
