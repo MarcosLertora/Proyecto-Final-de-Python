@@ -26,8 +26,8 @@
 # ==========================================
 
 # Lista donde se almacenarán todos los pacientes
-pacientes = []
 
+from datos import pacientes
 
 def existe_dni(dni):
     
