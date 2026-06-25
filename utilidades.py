@@ -8,16 +8,16 @@
 #   - confirmar()
 
 def limpiar_pantalla():
-    pass
+    print("Se llamó a funcion limpiar_pantalla.")
 
 def pausa():
-    pass
+    print("Se llamó a funcion pausa.")
 
 def mostrar_titulo():
-    pass
+    print("Se llamó a funcion mostrar_titulo.")
 
 def buscar_por_dni():
-    pass
+    print("Se llamó a funcion buscar_por_dni.")
 
 def confirmar():
-    pass
+    print("Se llamó a funcion confirmar.")

@@ -1,29 +1,68 @@
 # MÓDULO: main.py
 # Este módulo contiene el menú.
 
-while True:
+import os
 
-    mostrar_menu()
+import pacientes
+import turnos
+import estadisticas
 
-    opcion = validar_opcion()
+def limpiar_pantalla():
+    os.system("cls" if os.name == "nt" else "clear")
 
-    if opcion == 1:
-        registrar_paciente()
 
-    elif opcion == 2:
-        solicitar_turno()
+def mostrar_menu():
 
-    elif opcion == 3:
-        atender_paciente()
+    print("=" * 50)
+    print("      SISTEMA DE TURNOS HOSPITALARIOS")
+    print("=" * 50)
+    print("1. Registrar paciente")
+    print("2. Solicitar turno")
+    print("3. Atender paciente")
+    print("4. Mostrar pacientes")
+    print("5. Mostrar turnos")
+    print("6. Estadísticas")
+    print("7. Salir")
+    print("=" * 50)
 
-    elif opcion == 4:
-        mostrar_pacientes()
 
-    elif opcion == 5:
-        mostrar_turnos()
+def main():
 
-    elif opcion == 6:
-        mostrar_estadisticas()
+    while True:
 
-    elif opcion == 7:
-        break
+        limpiar_pantalla()
+
+        mostrar_menu()
+
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            pacientes.registrar_paciente()
+
+        elif opcion == "2":
+            turnos.solicitar_turno()
+
+        elif opcion == "3":
+            turnos.atender_paciente()
+
+        elif opcion == "4":
+            pacientes.mostrar_pacientes()
+
+        elif opcion == "5":
+            turnos.mostrar_turnos()
+
+        elif opcion == "6":
+            estadisticas.mostrar_estadisticas()
+
+        elif opcion == "7":
+            print("\nGracias por utilizar el sistema.")
+            break
+
+        else:
+            print("\nOpción inválida.")
+
+        input("\nPresione ENTER para continuar...")
+
+
+if __name__ == "__main__":
+    main()

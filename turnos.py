@@ -26,16 +26,16 @@
 #   - buscar_turno()
 
 def solicitar_turno():
-    pass
+    print("Se llamó a funcion solicitar_turno.")
 
 def mostrar_turnos():
-    pass
+    print("Se llamó a funcion mostrar_turnos.")
 
 def atender_paciente():
-    pass
+    print("Se llamó a funcion atender_paciente.")
 
 def cancelar_turno():
-    pass
+    print("Se llamó a funcion cancelar_turno.")
 
 def hay_turnos_disponibles():
-    pass
+    print("Se llamó a funcion hay_turnos_disponibles.")

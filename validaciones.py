@@ -9,10 +9,10 @@
 #   - validar_especialidad()
 
 def validar_dni():
-    pass
+    print("Se llamó a validar_dni.")
 
 def validar_nombre():
-    pass
+    print("Se llamó a validar_nombre.")
 
 def validar_edad():
 
@@ -30,10 +30,10 @@ def validar_edad():
         print("Edad inválida.")
 
 def validar_telefono():
-    pass
+    print("Se llamó a validar_telefono.")
 
 def validar_opcion_menu():
-    pass
+    print("Se llamó a validar_opcion_menu.")
 
 def validar_especialidad():
-    pass
+    print("Se llamó a validar_especialidad.")

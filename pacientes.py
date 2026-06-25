@@ -22,22 +22,22 @@
 #   - Obra social
 
 def registrar_paciente():
-    pass
+    print("Se llamó a función registrar.")
 
 def buscar_paciente():
-    pass
+    print("Se llamó a función buscar.")
 
 def mostrar_pacientes():
-    pass
+    print("Se llamó a función mostrar.")
 
 def existe_dni():
-    pass
+    print("Se llamó a función existe_dni.")
 
 def bucar_paciente_por_dni():
-    pass
+    print("Se llamó a función paciente_dni.")
 
 def modificar_paciente():
-    pass
+    print("Se llamó a función modificar.")
 
 def eliminar_paciente():
-    pass
+    print("Se llamó a función eliminar.")

@@ -11,25 +11,25 @@
 #   - especialidad_mas_solicitada()
 
 def mostrar_estadisticas():
-    pass
+    print("Se llamó a función estadistica.")
 
 def cantidad_pacientes():
-    pass
+    print("Se llamó a función pacientes.")
 
 def cantidad_turnos():
-    pass
+    print("Se llamó a función turnos.")
 
 def cantidad_atendidos():
-    pass
+    print("Se llamó a función atendidos.")
 
 def cantidad_pendientes():
-    pass
+    print("Se llamó a función pendientes.")
 
 def cantidad_cancelados():
-    pass
+    print("Se llamó a función cancelados.")
 
 def prioridad_mas_frecuente():
-    pass
+    print("Se llamó a función frecuente.")
 
 def especialidad_mas_solicitada():
-    pass
+    print("Se llamó a función solicitada.")
