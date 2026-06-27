@@ -82,7 +82,18 @@ def registrar_paciente():
             continue
 
         break
+    # -----------------------------
+    # Apellido 
+    # -----------------------------
+    
+    while True: 
+        apellido = validaciones.validar_texto("Apellido: ").strip()
 
+        if apellido == "":
+            print("El apellido no puede estar vacío.")
+            continue
+        break
+        
     # -----------------------------
     # Edad
     # -----------------------------
@@ -122,6 +133,7 @@ def registrar_paciente():
 
         "dni": dni,
         "nombre": nombre,
+        "apellido": apellido,
         "edad": edad,
         "telefono": telefono,
         "obra_social": obra_social
@@ -146,6 +158,7 @@ def mostrar_pacientes():
         print("----------------------------")
         print("DNI:", paciente["dni"])
         print("Nombre:", paciente["nombre"])
+        print("Apellido:", paciente["apellido"]) 
         print("Edad:", paciente["edad"])
         print("Teléfono:", paciente["telefono"])
         print("Obra Social:", paciente["obra_social"])
