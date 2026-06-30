@@ -105,7 +105,9 @@ def solicitar_turno():
         print("Especialidad inválida.")
         return
 
-    hora = input("Ingrese horario (Ej: 09:30): ")
+    hora = validaciones.validar_texto(
+        "ingrese horario (Ej:9:30): "
+    )
 
     print("\nPrioridad")
 
@@ -113,7 +115,10 @@ def solicitar_turno():
     print("2. Media")
     print("3. Alta")
 
-    prioridad_opcion = input("Seleccione prioridad: ")
+    prioridad_opcion = validaciones.validar_opcion(
+        "Seleccione prioridad (1-3): ",
+        ["1", "2", "3"]
+    )
 
     if prioridad_opcion == "1":
 
@@ -177,7 +182,7 @@ def atender_paciente():
 
     try:
 
-        dni = int(input("Ingrese DNI: "))
+        dni = validaciones.validar_entero("Ingrese DNI del paciente: ")
 
     except ValueError:
 

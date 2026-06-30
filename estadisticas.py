@@ -1,35 +1,100 @@
-# MÓDULO: estadisticas.py
-# Este módulo calcula y muestra las estadísticas del sistema.
-# Funciones del módulo:
-#   - mostrar_estadisticas()
-#   - cantidad_pacientes()
-#   - cantidad_turnos()
-#   - cantidad_atendidos()
-#   - cantidad_pendientes()
-#   - cantidad_cancelados()
-#   - prioridad_mas_frecuente()
-#   - especialidad_mas_solicitada()
+# ==========================================
+# MÓDULO: ESTADÍSTICAS
+# ==========================================
+
+from datos import pacientes, turnos
+
 
 def mostrar_estadisticas():
-    print("Se llamó a función estadistica.")
+
+    print("\n========== ESTADÍSTICAS ==========\n")
+
+    print(f"Pacientes registrados: {cantidad_pacientes()}")
+    print(f"Turnos registrados: {cantidad_turnos()}")
+    print(f"Turnos atendidos: {cantidad_atendidos()}")
+    print(f"Turnos pendientes: {cantidad_pendientes()}")
+    print(f"Turnos cancelados: {cantidad_cancelados()}")
+
+    print(f"\nEspecialidad más solicitada: {especialidad_mas_solicitada()}")
+    print(f"Prioridad más frecuente: {prioridad_mas_frecuente()}")
+
 
 def cantidad_pacientes():
-    print("Se llamó a función pacientes.")
+    return len(pacientes)
+
 
 def cantidad_turnos():
-    print("Se llamó a función turnos.")
+    return len(turnos)
+
 
 def cantidad_atendidos():
-    print("Se llamó a función atendidos.")
+
+    contador = 0
+
+    for turno in turnos:
+
+        if turno["estado"] == "Atendido":
+            contador += 1
+
+    return contador
+
 
 def cantidad_pendientes():
-    print("Se llamó a función pendientes.")
+
+    contador = 0
+
+    for turno in turnos:
+
+        if turno["estado"] == "Pendiente":
+            contador += 1
+
+    return contador
+
 
 def cantidad_cancelados():
-    print("Se llamó a función cancelados.")
+
+    contador = 0
+
+    for turno in turnos:
+
+        if turno["estado"] == "Cancelado":
+            contador += 1
+
+    return contador
+
 
 def prioridad_mas_frecuente():
-    print("Se llamó a función frecuente.")
+
+    prioridades = {
+        "Baja": 0,
+        "Media": 0,
+        "Alta": 0
+    }
+
+    for turno in turnos:
+
+        prioridades[turno["prioridad"]] += 1
+
+    if len(turnos) == 0:
+        return "Sin datos"
+
+    return max(prioridades, key=prioridades.get)
+
 
 def especialidad_mas_solicitada():
-    print("Se llamó a función solicitada.")
+
+    especialidades = {}
+
+    for turno in turnos:
+
+        nombre = turno["especialidad"]
+
+        if nombre in especialidades:
+            especialidades[nombre] += 1
+        else:
+            especialidades[nombre] = 1
+
+    if len(especialidades) == 0:
+        return "Sin datos"
+
+    return max(especialidades, key=especialidades.get)
