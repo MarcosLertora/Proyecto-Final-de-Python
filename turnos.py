@@ -31,6 +31,7 @@
 
 from datos import pacientes, turnos
 import validaciones
+import utilidades
 
 
 def paciente_existe(dni):
@@ -52,10 +53,23 @@ def turno_existente(dni):
 
     return False
 
+def horario_disponible(especialidad, fecha, hora):
+
+    for turno in turnos:
+
+        if (
+            turno["especialidad"] == especialidad
+            and turno["fecha"] == fecha
+            and turno["hora"] == hora
+            and turno["estado"] == "Pendiente"
+        ):
+            return False
+    
+    return True
 
 def solicitar_turno():
 
-    print("\n===== SOLICITAR TURNO =====")
+    utilidades.titulo("SOLICITAR TURNO")
 
     try:
 
@@ -105,9 +119,48 @@ def solicitar_turno():
         print("Especialidad inválida.")
         return
 
-    hora = validaciones.validar_texto(
-        "ingrese horario (Ej:9:30): "
-    )
+    while True:
+
+        fecha = input("Ingrese la fecha (dd/mm/aaaa): ").strip()
+
+        partes = fecha.split("/")
+
+        if len(partes) != 3:
+            print("Formato incorrecto.")
+            continue
+
+        dia, mes, anio = partes
+
+        if not (dia.isdigit() and mes.isdigit() and anio.isdigit()):
+            print("La fecha debe contener únicamente números.")
+            continue
+
+        dia = int(dia)
+        mes = int(mes)
+        anio = int(anio)
+
+        if dia < 1 or dia > 31:
+            print("Día inválido.")
+            continue
+
+        if mes < 1 or mes > 12:
+            print("Mes inválido.")
+            continue
+
+        if anio < 2025:
+            print("Año inválido.")
+            continue
+
+        break
+
+    while True:
+
+        hora = input("Ingrese horario (Ej: 09:30): ")
+
+        if horario_disponible(especialidad, fecha, hora):
+            break
+
+        print("\nEse horario ya se encuentra ocupado para esa especialidad.")
 
     print("\nPrioridad")
 
@@ -141,6 +194,7 @@ def solicitar_turno():
 
         "dni": dni,
         "especialidad": especialidad,
+        "fecha": fecha,
         "hora": hora,
         "prioridad": prioridad,
         "estado": "Pendiente"
@@ -163,22 +217,21 @@ def mostrar_turnos():
 
     for turno in turnos:
 
-        print("-----------------------------")
+        utilidades.linea()
 
-        print("DNI:", turno["dni"])
+        print(f"DNI           : {turno['dni']}")
+        print(f"Especialidad  : {turno['especialidad']}")
+        print(f"Fecha         : {turno['fecha']}")
+        print(f"Hora          : {turno['hora']}")
+        print(f"Prioridad     : {turno['prioridad']}")
+        print(f"Estado        : {turno['estado']}")
 
-        print("Especialidad:", turno["especialidad"])
-
-        print("Hora:", turno["hora"])
-
-        print("Prioridad:", turno["prioridad"])
-
-        print("Estado:", turno["estado"])
+        utilidades.linea()
 
 
 def atender_paciente():
 
-    print("\n===== ATENDER PACIENTE =====")
+    utilidades.titulo("ATENDER PACIENTE")
 
     try:
 
@@ -200,3 +253,36 @@ def atender_paciente():
             return
 
     print("No existe un turno pendiente para ese paciente.")
+
+def cancelar_turno():
+
+    utilidades.titulo("CANCELAR TURNO")
+
+    try:
+        dni = int(input("Ingrese el DNI del paciente: "))
+
+    except ValueError:
+        print("Debe ingresar un número.")
+        return
+
+    for turno in turnos:
+
+        if turno["dni"] == dni and turno["estado"] == "Pendiente":
+
+            confirmar = input(
+                "¿Está seguro que desea cancelar el turno? (S/N): "
+            ).upper()
+
+            if confirmar == "S":
+
+                turno["estado"] = "Cancelado"
+
+                print("\nTurno cancelado correctamente.")
+
+            else:
+
+                print("\nOperación cancelada.")
+
+            return
+
+    print("\nNo existe un turno pendiente para ese paciente.")

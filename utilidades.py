@@ -7,17 +7,26 @@
 #   - buscar_por_dni()
 #   - confirmar()
 
+import os
+
+
 def limpiar_pantalla():
-    print("Se llamó a funcion limpiar_pantalla.")
+
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def linea():
+
+    print("=" * 50)
+
+
+def titulo(texto):
+
+    linea()
+    print(texto.center(50))
+    linea()
+
 
 def pausa():
-    print("Se llamó a funcion pausa.")
 
-def mostrar_titulo():
-    print("Se llamó a funcion mostrar_titulo.")
-
-def buscar_por_dni():
-    print("Se llamó a funcion buscar_por_dni.")
-
-def confirmar():
-    print("Se llamó a funcion confirmar.")
+    input("\nPresione ENTER para continuar...")

@@ -29,6 +29,7 @@
 
 from datos import pacientes
 import validaciones
+import utilidades
 
 def existe_dni(dni):
     
@@ -46,7 +47,7 @@ def existe_dni(dni):
 
 def registrar_paciente():
 
-    print("\n===== REGISTRO DE PACIENTE =====")
+    utilidades.titulo("REGISTRAR PACIENTE")
 
     # -----------------------------
     # DNI
@@ -156,12 +157,41 @@ def mostrar_pacientes():
         print("No hay pacientes registrados.")
         return
 
+    for paciente in sorted(pacientes, key=lambda paciente: paciente["nombre"]):
+
+        utilidades.linea()
+
+        print(f"DNI         : {paciente['dni']}")
+        print(f"Nombre      : {paciente['nombre']}")
+        print(f"Apellido      : {paciente['apellido']}")
+        print(f"Edad        : {paciente['edad']}")
+        print(f"Teléfono    : {paciente['telefono']}")
+        print(f"Obra Social : {paciente['obra_social']}")
+
+        utilidades.linea()
+
+def buscar_paciente():
+
+    print("\n===== BUSCAR PACIENTE =====")
+
+    try:
+        dni = int(input("Ingrese el DNI del paciente: "))
+    except ValueError:
+        print("Debe ingresar un número.")
+        return
+
     for paciente in pacientes:
 
-        print("----------------------------")
-        print("DNI:", paciente["dni"])
-        print("Nombre:", paciente["nombre"])
-        print("Apellido:", paciente["apellido"])
-        print("Edad:", paciente["edad"])
-        print("Teléfono:", paciente["telefono"])
-        print("Obra Social:", paciente["obra_social"])
+        if paciente["dni"] == dni:
+
+            print("\nPaciente encontrado")
+            print("-" * 30)
+            print("DNI:", paciente["dni"])
+            print("Nombre:", paciente["nombre"])
+            print("Edad:", paciente["edad"])
+            print("Teléfono:", paciente["telefono"])
+            print("Obra Social:", paciente["obra_social"])
+
+            return
+
+    print("\nNo existe un paciente con ese DNI.")

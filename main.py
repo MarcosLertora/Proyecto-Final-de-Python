@@ -6,6 +6,7 @@ import os
 import pacientes
 import turnos
 import estadisticas
+import utilidades
 
 def limpiar_pantalla():
     os.system("cls" if os.name == "nt" else "clear")
@@ -16,12 +17,14 @@ def mostrar_menu():
     print("      SISTEMA DE TURNOS HOSPITALARIOS")
     print("=" * 50)
     print("1. Registrar paciente")
-    print("2. Solicitar turno")
-    print("3. Atender paciente")
-    print("4. Mostrar pacientes")
-    print("5. Mostrar turnos")
-    print("6. Estadísticas")
-    print("7. Salir")
+    print("2. Buscar paciente")
+    print("3. Solicitar turno")
+    print("4. Atender paciente")
+    print("5. Cancelar turno")
+    print("6. Mostrar pacientes")
+    print("7. Mostrar turnos")
+    print("8. Estadísticas")
+    print("9. Salir")
     print("=" * 50)
 
 
@@ -29,7 +32,7 @@ def main():
 
     while True:
 
-        limpiar_pantalla()
+        utilidades.limpiar_pantalla()
 
         mostrar_menu()
 
@@ -39,28 +42,34 @@ def main():
             pacientes.registrar_paciente()
 
         elif opcion == "2":
-            turnos.solicitar_turno()
+            pacientes.buscar_paciente()
 
         elif opcion == "3":
-            turnos.atender_paciente()
+            turnos.solicitar_turno()
 
         elif opcion == "4":
-            pacientes.mostrar_pacientes()
+            turnos.atender_paciente()
 
         elif opcion == "5":
-            turnos.mostrar_turnos()
+            turnos.cancelar_turno()
 
         elif opcion == "6":
-            estadisticas.mostrar_estadisticas()
+            pacientes.mostrar_pacientes()
 
         elif opcion == "7":
+            turnos.mostrar_turnos()
+
+        elif opcion == "8":
+            estadisticas.mostrar_estadisticas()
+
+        elif opcion == "9":
             print("\nGracias por utilizar el sistema.")
             break
 
         else:
             print("\nOpción inválida.")
 
-        input("\nPresione ENTER para continuar...")
+        utilidades.pausa()
 
 
 if __name__ == "__main__":
