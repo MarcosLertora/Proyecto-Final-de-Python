@@ -1,14 +1,16 @@
-# MÓDULO: utilidades.py
+# ==========================================
+# MÓDULO: UTILIDADES
+# ==========================================
+
 # En este módulo se encuentran funciones reutilizables.
+
 # Funciones del módulo:
 #   - limpiar_pantalla()
+#   - linea()
+#   - titulo()
 #   - pausa()
-#   - mostrar_titulo()
-#   - buscar_por_dni()
-#   - confirmar()
 
 import os
-
 
 def limpiar_pantalla():
 

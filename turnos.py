@@ -1,13 +1,15 @@
-# MÓDULO: turnos.py
+# ==========================================
+# MÓDULO: TURNOS
+# ==========================================
+
 # Este módulo administra los turnos médicos.
-#
 # - Asignar turnos.
 # - Cancelar turnos.
 # - Atender pacientes.
 # - Mostrar turnos.
 # - Buscar turnos.
 # - Verificar disponibilidad.
-#
+
 # Cada turno tiene:
 #   - DNI del paciente.
 #   - Especialidad.
@@ -15,21 +17,17 @@
 #   - Hora.
 #   - Prioridad.
 #   - Estado (Pendiente, Atendido, Cancelado)
-#
+
 # Funciones del módulo:
+#   - paciente_existe()
+#   - turno_existente()
+#   - horario_disponible()
 #   - solicitar_turno()
 #   - mostrar_turnos()
 #   - atender_paciente()
 #   - cancelar_turno()
-#   - hay_turnos_disponibles()
-#   - buscar_turno_por_dni()
-#   - buscar_turno()
 
-# ==========================================
-# MÓDULO: TURNOS
-# ==========================================
-
-from datos import pacientes, turnos
+from datos import turnos, pacientes
 import validaciones
 import utilidades
 
@@ -219,6 +217,19 @@ def mostrar_turnos():
 
         utilidades.linea()
 
+        nombre_paciente = "No encontrado"
+
+        for paciente in pacientes:
+
+            if paciente["dni"] == turno["dni"]:
+
+                nombre_paciente = paciente["nombre"]
+                apellido_paciente = paciente["apellido"]
+
+                break
+        
+        print(f"Nombre        : {nombre_paciente}")
+        print(f"Apellido      : {apellido_paciente}")
         print(f"DNI           : {turno['dni']}")
         print(f"Especialidad  : {turno['especialidad']}")
         print(f"Fecha         : {turno['fecha']}")

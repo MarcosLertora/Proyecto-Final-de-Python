@@ -1,4 +1,7 @@
-# MÓDULO: main.py
+# ==========================================
+# MÓDULO: MAIN.PY
+# ==========================================
+
 # Este módulo contiene el menú.
 
 import os

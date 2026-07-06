@@ -1,18 +1,20 @@
-# MÓDULO: pacientes.py
+# ==========================================
+# MÓDULO: PACIENTES.PY
+# ==========================================
+
 # Este módulo administra toda la información relacionada con los pacientes.
 # - Registrar pacientes.
 # - Buscar pacientes.
 # - Modificar datos de un paciente.
 # - Mostrar uno o todos los pacientes.
 # - Verificar si un DNI ya existe.
+
 # Funciones del módulo:
 #   - registrar_paciente()
 #   - buscar_paciente()
 #   - mostrar_pacientes()
 #   - existe_dni()
-#   - buscar_paciente_por_dni()
-#   - modificar_paciente()
-#   - eliminar_paciente()
+
 # Cada paciente tiene:
 #   - DNI
 #   - Nombre
@@ -20,12 +22,6 @@
 #   - Edad
 #   - Teléfono
 #   - Obra social
-#
-# ==========================================
-# MÓDULO: pacientes.py
-# ==========================================
-
-# Lista donde se almacenarán todos los pacientes
 
 from datos import pacientes
 import validaciones
@@ -52,6 +48,7 @@ def registrar_paciente():
     # -----------------------------
     # DNI
     # -----------------------------
+
     while True:
 
         try:
@@ -76,27 +73,25 @@ def registrar_paciente():
 
     while True:
 
-        nombre = validaciones.validar_texto("Nombre: ").strip()
+        nombre = input("Nombre: ").strip()
 
-        if nombre == "":
-            print("El nombre no puede estar vacío.")
-            continue
+        if validaciones.validar_nombre(nombre):
+            break
 
-        break
+        print("El nombre solo puede contener letras y espacios.")
 
     # -----------------------------
     # Apellido
     # -----------------------------
 
     while True:
+        
+        apellido = input("Apellido: ").strip()
 
-        apellido = validaciones.validar_texto("Apellido: ").strip()
+        if validaciones.validar_nombre(apellido):
+            break
 
-        if apellido == "":
-            print("El apellido no puede estar vacío.")
-            continue
-
-        break
+        print("El apellido solo puede contener letras y espacios.")
 
     # -----------------------------
     # Edad
@@ -121,13 +116,27 @@ def registrar_paciente():
     # Teléfono
     # -----------------------------
 
-    telefono = input("Teléfono: ")
+    while True:
+
+        telefono = input("Teléfono: ").strip()
+
+        if validaciones.validar_telefono(telefono):
+            break
+
+        print("Ingrese un teléfono válido.")
 
     # -----------------------------
     # Obra Social
     # -----------------------------
 
-    obra_social = input("Obra Social: ")
+    while True:
+
+        obra_social = input("Obra Social: ").strip()
+
+        if validaciones.validar_obra_social(obra_social):
+            break
+
+        print("La obra social solo puede contener letras y espacios.")
 
     # -----------------------------
     # Crear paciente
@@ -146,7 +155,7 @@ def registrar_paciente():
 
     pacientes.append(paciente)
 
-    print("\nPaciente registrado correctamente.")
+    print(f"Paciente {nombre} {apellido} registrado correctamente.")
 
 
 def mostrar_pacientes():
@@ -186,11 +195,12 @@ def buscar_paciente():
 
             print("\nPaciente encontrado")
             print("-" * 30)
-            print("DNI:", paciente["dni"])
-            print("Nombre:", paciente["nombre"])
-            print("Edad:", paciente["edad"])
-            print("Teléfono:", paciente["telefono"])
-            print("Obra Social:", paciente["obra_social"])
+            print("DNI: ", paciente["dni"])
+            print(f"Nombre : {paciente['nombre']}")
+            print(f"Apellido : {paciente['apellido']}")            
+            print("Edad :", paciente["edad"])
+            print("Teléfono :", paciente["telefono"])
+            print("Obra Social :", paciente["obra_social"])
 
             return
 

@@ -1,18 +1,13 @@
-# MÓDULO: validaciones.py
-# Este módulo se encarga de toda la entrada de datos.
-# Funciones del módulo:
-#   - validar_dni()
-#   - validar_nombre()
-#   - validar_edad()
-#   - validar_telefono()
-#   - validar_opcion_menu()
-#   - validar_especialidad()
-
-
 # ==========================================
 # MÓDULO: VALIDACIONES
 # ==========================================
 
+# Este módulo se encarga de toda la entrada de datos.
+
+# Funciones del módulo:
+#   - validar_entero()
+#   - validar_texto()
+#   - validar_opcion()
 
 def validar_entero(mensaje):
 
@@ -58,3 +53,35 @@ def validar_opcion(mensaje, opciones):
             return opcion
 
         print("Opción inválida. Intente nuevamente.")
+
+def validar_nombre(texto):
+
+    texto = texto.strip()
+
+    if len(texto) == 0:
+        return False
+
+    for caracter in texto:
+
+        if not (caracter.isalpha() or caracter == " "):
+            return False
+
+    return True
+
+def validar_obra_social(texto):
+
+    texto = texto.strip()
+
+    if len(texto) == 0:
+        return False
+
+    for caracter in texto:
+
+        if not (caracter.isalpha() or caracter == " "):
+            return False
+
+    return True
+
+def validar_telefono(telefono):
+
+    return telefono.isdigit() and len(telefono) >= 8
