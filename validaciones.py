@@ -8,6 +8,8 @@
 #   - validar_entero()
 #   - validar_texto()
 #   - validar_opcion()
+#   - validar_nombre()
+#   - validar_telefono()
 
 def validar_entero(mensaje):
 
@@ -55,20 +57,6 @@ def validar_opcion(mensaje, opciones):
         print("Opción inválida. Intente nuevamente.")
 
 def validar_nombre(texto):
-
-    texto = texto.strip()
-
-    if len(texto) == 0:
-        return False
-
-    for caracter in texto:
-
-        if not (caracter.isalpha() or caracter == " "):
-            return False
-
-    return True
-
-def validar_obra_social(texto):
 
     texto = texto.strip()
 

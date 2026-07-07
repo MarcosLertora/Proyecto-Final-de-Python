@@ -1,5 +1,5 @@
 # ==========================================
-# DATOS DEL SISTEMA
+# MÓDULO: DATOS DEL SISTEMA
 # ==========================================
 
 # Lista de pacientes

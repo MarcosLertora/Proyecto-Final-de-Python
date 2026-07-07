@@ -2,7 +2,12 @@
 # MÓDULO: MAIN.PY
 # ==========================================
 
-# Este módulo contiene el menú.
+# Este módulo contiene el menú principal.
+
+# Funciones del módulo:
+#   - limpiar_pantalla()
+#   - mostrar_menu()
+#   - main()
 
 import os
 

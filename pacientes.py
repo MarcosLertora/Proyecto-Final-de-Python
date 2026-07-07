@@ -133,7 +133,7 @@ def registrar_paciente():
 
         obra_social = input("Obra Social: ").strip()
 
-        if validaciones.validar_obra_social(obra_social):
+        if validaciones.validar_nombre(obra_social):
             break
 
         print("La obra social solo puede contener letras y espacios.")
