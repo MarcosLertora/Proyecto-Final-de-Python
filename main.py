@@ -35,6 +35,7 @@ def mostrar_menu():
     print("9. Salir")
     print("=" * 50)
 
+# La función main() controla el menú principal y coordina el funcionamiento del sistema.
 
 def main():
 

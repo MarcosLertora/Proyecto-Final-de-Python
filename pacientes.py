@@ -40,6 +40,7 @@ def existe_dni(dni):
 
     return False
 
+# La función registrar_paciente() registra un nuevo paciente validando todos los datos ingresados.
 
 def registrar_paciente():
 
@@ -178,6 +179,8 @@ def mostrar_pacientes():
         print(f"Obra Social : {paciente['obra_social']}")
 
         utilidades.linea()
+
+# La función buscar_paciente() busca un paciente por su DNI y muestra toda su información registrada.
 
 def buscar_paciente():
 

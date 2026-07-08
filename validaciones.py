@@ -56,6 +56,8 @@ def validar_opcion(mensaje, opciones):
 
         print("Opción inválida. Intente nuevamente.")
 
+#La función validar_nombre() verifica que el texto contenga únicamente letras y espacios.
+
 def validar_nombre(texto):
 
     texto = texto.strip()

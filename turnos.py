@@ -65,6 +65,8 @@ def horario_disponible(especialidad, fecha, hora):
     
     return True
 
+# La función solicitar_turno() asigna un turno médico verificando la disponibilidad del horario.
+
 def solicitar_turno():
 
     utilidades.titulo("SOLICITAR TURNO")
@@ -203,6 +205,7 @@ def solicitar_turno():
 
     print("\nTurno registrado correctamente.")
 
+# La función mostrar_turnos() recorre y muestra todos los turnos almacenados en el sistema.
 
 def mostrar_turnos():
 
@@ -239,6 +242,7 @@ def mostrar_turnos():
 
         utilidades.linea()
 
+# La función atender_paciente() cambia el estado del turno de pendiente a atendido.
 
 def atender_paciente():
 
@@ -264,6 +268,8 @@ def atender_paciente():
             return
 
     print("No existe un turno pendiente para ese paciente.")
+
+# La función cancelar_turno() permite cancelar un turno pendiente previa confirmación del ususario.
 
 def cancelar_turno():
 

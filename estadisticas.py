@@ -5,6 +5,8 @@
 from datos import pacientes, turnos
 import utilidades
 
+# La función mostrar_estadisticas() calcula y muestra información estadística de los turnos registrados.
+
 def mostrar_estadisticas():
 
     utilidades.titulo("ESTADÍSTICAS")

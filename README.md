@@ -2,7 +2,7 @@
 
 ## GRUPO  A 37
 
-## Integrantes del grupo:
+## INTEGRANTES DEL GRUPO
     - Arévalo, Maximiliano. Legajo N° 27416
     - Guillén, Alexis de Jesús. Legajo N° 27938
     - Llorente, Luciano. Legajo N° 26615
