@@ -37,8 +37,8 @@ Durante el desarrollo se implementaron estructuras condicionales, estructuras re
 ## UTILIZACIÓN DE LA INTELIGENCIA ARTIFICIAL
 Durante el desarrollo del proyecto se utilizó ChatGPT (OpenAI) como herramienta de apoyo para la creación del sistema.
 La Inteligencia Artificial fue utilizada para:
-    1. Proponer la estructura inicial del proyecto y la organización en módulos.
-    2. Resolver dudas sobre la implementación de funciones y estructuras de control.
-    3. Analizar errores detectados durante el desarrollo y proponer posibles soluciones
-    4. Sugerir mejoras en las validaciones, la modularización y la presentación del sistema.
+1. Proponer la estructura inicial del proyecto y la organización en módulos.
+2. Resolver dudas sobre la implementación de funciones y estructuras de control.
+3. Analizar errores detectados durante el desarrollo y proponer posibles soluciones
+4. Sugerir mejoras en las validaciones, la modularización y la presentación del sistema.
 Todas las sugerencias proporcionadas por la Inteligencia Artificial fueron analizadas, adaptadas e implementadas por los integrantes del grupo, procurando comprender el funcionamiento del código antes de incorporarlo al proyecto.
